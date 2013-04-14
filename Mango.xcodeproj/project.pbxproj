@@ -16,6 +16,9 @@
 		C137E801168A53C900C0931F /* DDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C137E800168A53C900C0931F /* DDViewController.m */; };
 		C137E804168A53C900C0931F /* DDViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = C137E802168A53C900C0931F /* DDViewController_iPhone.xib */; };
 		C137E807168A53C900C0931F /* DDViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C137E805168A53C900C0931F /* DDViewController_iPad.xib */; };
+		C198D820171B69A300C98260 /* Bleep.mm in Sources */ = {isa = PBXBuildFile; fileRef = C198D81F171B69A300C98260 /* Bleep.mm */; };
+		C198D824171B6BF700C98260 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C198D823171B6BF600C98260 /* AudioToolbox.framework */; };
+		C198D826171B6BFB00C98260 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C198D825171B6BFB00C98260 /* CoreAudio.framework */; };
 		C1C46759171B3FDC00303DF4 /* UICoordButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C46758171B3FDC00303DF4 /* UICoordButton.m */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +37,11 @@
 		C137E800168A53C900C0931F /* DDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDViewController.m; sourceTree = "<group>"; };
 		C137E803168A53C900C0931F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DDViewController_iPhone.xib; sourceTree = "<group>"; };
 		C137E806168A53C900C0931F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DDViewController_iPad.xib; sourceTree = "<group>"; };
+		C198D81E171B69A300C98260 /* Bleep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bleep.h; sourceTree = "<group>"; };
+		C198D81F171B69A300C98260 /* Bleep.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Bleep.mm; sourceTree = "<group>"; };
+		C198D821171B6BF000C98260 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
+		C198D823171B6BF600C98260 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		C198D825171B6BFB00C98260 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		C1C46757171B3FDC00303DF4 /* UICoordButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICoordButton.h; sourceTree = "<group>"; };
 		C1C46758171B3FDC00303DF4 /* UICoordButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICoordButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -43,6 +51,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C198D826171B6BFB00C98260 /* CoreAudio.framework in Frameworks */,
+				C198D824171B6BF700C98260 /* AudioToolbox.framework in Frameworks */,
 				C137E7EE168A53C900C0931F /* UIKit.framework in Frameworks */,
 				C137E7F0168A53C900C0931F /* Foundation.framework in Frameworks */,
 				C137E7F2168A53C900C0931F /* CoreGraphics.framework in Frameworks */,
@@ -55,6 +65,9 @@
 		C137E7DE168A53C900C0931F = {
 			isa = PBXGroup;
 			children = (
+				C198D825171B6BFB00C98260 /* CoreAudio.framework */,
+				C198D823171B6BF600C98260 /* AudioToolbox.framework */,
+				C198D821171B6BF000C98260 /* AudioUnit.framework */,
 				C137E7F3168A53C900C0931F /* Mango */,
 				C137E7EC168A53C900C0931F /* Frameworks */,
 				C137E7EA168A53C900C0931F /* Products */,
@@ -86,6 +99,8 @@
 				C137E7FD168A53C900C0931F /* DDAppDelegate.m */,
 				C137E7FF168A53C900C0931F /* DDViewController.h */,
 				C137E800168A53C900C0931F /* DDViewController.m */,
+				C198D81E171B69A300C98260 /* Bleep.h */,
+				C198D81F171B69A300C98260 /* Bleep.mm */,
 				C1C46757171B3FDC00303DF4 /* UICoordButton.h */,
 				C1C46758171B3FDC00303DF4 /* UICoordButton.m */,
 				C137E802168A53C900C0931F /* DDViewController_iPhone.xib */,
@@ -174,6 +189,7 @@
 				C137E7FE168A53C900C0931F /* DDAppDelegate.m in Sources */,
 				C137E801168A53C900C0931F /* DDViewController.m in Sources */,
 				C1C46759171B3FDC00303DF4 /* UICoordButton.m in Sources */,
+				C198D820171B69A300C98260 /* Bleep.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +273,7 @@
 		C137E80B168A53C900C0931F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mango/Mango-Prefix.pch";
 				INFOPLIST_FILE = "Mango/Mango-Info.plist";
@@ -268,6 +285,7 @@
 		C137E80C168A53C900C0931F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mango/Mango-Prefix.pch";
 				INFOPLIST_FILE = "Mango/Mango-Info.plist";

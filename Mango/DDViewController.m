@@ -11,6 +11,7 @@
 @implementation DDViewController
 
 bool tones[8][8];
+BleepMachine * m_bleepMachine;
 
 - (void)didReceiveMemoryWarning
 {
@@ -23,6 +24,8 @@ bool tones[8][8];
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    m_bleepMachine = new BleepMachine; m_bleepMachine->Initialise(); m_bleepMachine->Start();
+    m_bleepMachine->SetWave(0, 400, 1);
     self.view.backgroundColor = [UIColor colorWithRed:193.0f/255.0f green:194.0f/255.0f blue:196.0f/255.0f alpha:1.0];
     CGFloat width = [UIScreen mainScreen].bounds.size.width / 8;
     for (int y=0; y < 8; y++) {
@@ -48,6 +51,7 @@ bool tones[8][8];
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    delete m_bleepMachine;
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }

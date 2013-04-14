@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import <AudioToolbox/AudioToolbox.h>
+#import <CoreAudio/CoreAudioTypes.h>
 #import "UICoordButton.h"
-
+#import "Bleep.h"
 @interface DDViewController : UIViewController
 - (IBAction)changeColor:(id)sender;
 - (IBAction)changeColor2:(id)sender;
