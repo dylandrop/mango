@@ -1,0 +1,303 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C137E7EE168A53C900C0931F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C137E7ED168A53C900C0931F /* UIKit.framework */; };
+		C137E7F0168A53C900C0931F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C137E7EF168A53C900C0931F /* Foundation.framework */; };
+		C137E7F2168A53C900C0931F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C137E7F1168A53C900C0931F /* CoreGraphics.framework */; };
+		C137E7F8168A53C900C0931F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C137E7F6168A53C900C0931F /* InfoPlist.strings */; };
+		C137E7FA168A53C900C0931F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C137E7F9168A53C900C0931F /* main.m */; };
+		C137E7FE168A53C900C0931F /* DDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C137E7FD168A53C900C0931F /* DDAppDelegate.m */; };
+		C137E801168A53C900C0931F /* DDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C137E800168A53C900C0931F /* DDViewController.m */; };
+		C137E804168A53C900C0931F /* DDViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = C137E802168A53C900C0931F /* DDViewController_iPhone.xib */; };
+		C137E807168A53C900C0931F /* DDViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C137E805168A53C900C0931F /* DDViewController_iPad.xib */; };
+		C1C46759171B3FDC00303DF4 /* UICoordButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C46758171B3FDC00303DF4 /* UICoordButton.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C137E7E9168A53C900C0931F /* Mango.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mango.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C137E7ED168A53C900C0931F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C137E7EF168A53C900C0931F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C137E7F1168A53C900C0931F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C137E7F5168A53C900C0931F /* Mango-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mango-Info.plist"; sourceTree = "<group>"; };
+		C137E7F7168A53C900C0931F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C137E7F9168A53C900C0931F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C137E7FB168A53C900C0931F /* Mango-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mango-Prefix.pch"; sourceTree = "<group>"; };
+		C137E7FC168A53C900C0931F /* DDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDAppDelegate.h; sourceTree = "<group>"; };
+		C137E7FD168A53C900C0931F /* DDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDAppDelegate.m; sourceTree = "<group>"; };
+		C137E7FF168A53C900C0931F /* DDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDViewController.h; sourceTree = "<group>"; };
+		C137E800168A53C900C0931F /* DDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDViewController.m; sourceTree = "<group>"; };
+		C137E803168A53C900C0931F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DDViewController_iPhone.xib; sourceTree = "<group>"; };
+		C137E806168A53C900C0931F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DDViewController_iPad.xib; sourceTree = "<group>"; };
+		C1C46757171B3FDC00303DF4 /* UICoordButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICoordButton.h; sourceTree = "<group>"; };
+		C1C46758171B3FDC00303DF4 /* UICoordButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICoordButton.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C137E7E6168A53C900C0931F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C137E7EE168A53C900C0931F /* UIKit.framework in Frameworks */,
+				C137E7F0168A53C900C0931F /* Foundation.framework in Frameworks */,
+				C137E7F2168A53C900C0931F /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C137E7DE168A53C900C0931F = {
+			isa = PBXGroup;
+			children = (
+				C137E7F3168A53C900C0931F /* Mango */,
+				C137E7EC168A53C900C0931F /* Frameworks */,
+				C137E7EA168A53C900C0931F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C137E7EA168A53C900C0931F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C137E7E9168A53C900C0931F /* Mango.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C137E7EC168A53C900C0931F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C137E7ED168A53C900C0931F /* UIKit.framework */,
+				C137E7EF168A53C900C0931F /* Foundation.framework */,
+				C137E7F1168A53C900C0931F /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C137E7F3168A53C900C0931F /* Mango */ = {
+			isa = PBXGroup;
+			children = (
+				C137E7FC168A53C900C0931F /* DDAppDelegate.h */,
+				C137E7FD168A53C900C0931F /* DDAppDelegate.m */,
+				C137E7FF168A53C900C0931F /* DDViewController.h */,
+				C137E800168A53C900C0931F /* DDViewController.m */,
+				C1C46757171B3FDC00303DF4 /* UICoordButton.h */,
+				C1C46758171B3FDC00303DF4 /* UICoordButton.m */,
+				C137E802168A53C900C0931F /* DDViewController_iPhone.xib */,
+				C137E805168A53C900C0931F /* DDViewController_iPad.xib */,
+				C137E7F4168A53C900C0931F /* Supporting Files */,
+			);
+			path = Mango;
+			sourceTree = "<group>";
+		};
+		C137E7F4168A53C900C0931F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C137E7F5168A53C900C0931F /* Mango-Info.plist */,
+				C137E7F6168A53C900C0931F /* InfoPlist.strings */,
+				C137E7F9168A53C900C0931F /* main.m */,
+				C137E7FB168A53C900C0931F /* Mango-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C137E7E8168A53C900C0931F /* Mango */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C137E80A168A53C900C0931F /* Build configuration list for PBXNativeTarget "Mango" */;
+			buildPhases = (
+				C137E7E5168A53C900C0931F /* Sources */,
+				C137E7E6168A53C900C0931F /* Frameworks */,
+				C137E7E7168A53C900C0931F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Mango;
+			productName = Mango;
+			productReference = C137E7E9168A53C900C0931F /* Mango.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C137E7E0168A53C900C0931F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "";
+			};
+			buildConfigurationList = C137E7E3168A53C900C0931F /* Build configuration list for PBXProject "Mango" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C137E7DE168A53C900C0931F;
+			productRefGroup = C137E7EA168A53C900C0931F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C137E7E8168A53C900C0931F /* Mango */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C137E7E7168A53C900C0931F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C137E7F8168A53C900C0931F /* InfoPlist.strings in Resources */,
+				C137E804168A53C900C0931F /* DDViewController_iPhone.xib in Resources */,
+				C137E807168A53C900C0931F /* DDViewController_iPad.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C137E7E5168A53C900C0931F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C137E7FA168A53C900C0931F /* main.m in Sources */,
+				C137E7FE168A53C900C0931F /* DDAppDelegate.m in Sources */,
+				C137E801168A53C900C0931F /* DDViewController.m in Sources */,
+				C1C46759171B3FDC00303DF4 /* UICoordButton.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C137E7F6168A53C900C0931F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C137E7F7168A53C900C0931F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C137E802168A53C900C0931F /* DDViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C137E803168A53C900C0931F /* en */,
+			);
+			name = DDViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		C137E805168A53C900C0931F /* DDViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C137E806168A53C900C0931F /* en */,
+			);
+			name = DDViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C137E808168A53C900C0931F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C137E809168A53C900C0931F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C137E80B168A53C900C0931F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mango/Mango-Prefix.pch";
+				INFOPLIST_FILE = "Mango/Mango-Info.plist";
+				PRODUCT_NAME = Mango;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C137E80C168A53C900C0931F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mango/Mango-Prefix.pch";
+				INFOPLIST_FILE = "Mango/Mango-Info.plist";
+				PRODUCT_NAME = Mango;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C137E7E3168A53C900C0931F /* Build configuration list for PBXProject "Mango" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C137E808168A53C900C0931F /* Debug */,
+				C137E809168A53C900C0931F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C137E80A168A53C900C0931F /* Build configuration list for PBXNativeTarget "Mango" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C137E80B168A53C900C0931F /* Debug */,
+				C137E80C168A53C900C0931F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C137E7E0168A53C900C0931F /* Project object */;
+}
