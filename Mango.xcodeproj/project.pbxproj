@@ -16,9 +16,10 @@
 		C137E801168A53C900C0931F /* DDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C137E800168A53C900C0931F /* DDViewController.m */; };
 		C137E804168A53C900C0931F /* DDViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = C137E802168A53C900C0931F /* DDViewController_iPhone.xib */; };
 		C137E807168A53C900C0931F /* DDViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C137E805168A53C900C0931F /* DDViewController_iPad.xib */; };
-		C198D820171B69A300C98260 /* Bleep.mm in Sources */ = {isa = PBXBuildFile; fileRef = C198D81F171B69A300C98260 /* Bleep.mm */; };
 		C198D824171B6BF700C98260 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C198D823171B6BF600C98260 /* AudioToolbox.framework */; };
 		C198D826171B6BFB00C98260 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C198D825171B6BFB00C98260 /* CoreAudio.framework */; };
+		C198D829171C469C00C98260 /* Synth.m in Sources */ = {isa = PBXBuildFile; fileRef = C198D828171C469C00C98260 /* Synth.m */; };
+		C198D82C171C47D200C98260 /* MHAudioBufferPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C198D82B171C47D200C98260 /* MHAudioBufferPlayer.m */; };
 		C1C46759171B3FDC00303DF4 /* UICoordButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C46758171B3FDC00303DF4 /* UICoordButton.m */; };
 /* End PBXBuildFile section */
 
@@ -37,11 +38,13 @@
 		C137E800168A53C900C0931F /* DDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDViewController.m; sourceTree = "<group>"; };
 		C137E803168A53C900C0931F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DDViewController_iPhone.xib; sourceTree = "<group>"; };
 		C137E806168A53C900C0931F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DDViewController_iPad.xib; sourceTree = "<group>"; };
-		C198D81E171B69A300C98260 /* Bleep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bleep.h; sourceTree = "<group>"; };
-		C198D81F171B69A300C98260 /* Bleep.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Bleep.mm; sourceTree = "<group>"; };
 		C198D821171B6BF000C98260 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 		C198D823171B6BF600C98260 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C198D825171B6BFB00C98260 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		C198D827171C469C00C98260 /* Synth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Synth.h; sourceTree = "<group>"; };
+		C198D828171C469C00C98260 /* Synth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Synth.m; sourceTree = "<group>"; };
+		C198D82A171C47D100C98260 /* MHAudioBufferPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHAudioBufferPlayer.h; sourceTree = "<group>"; };
+		C198D82B171C47D200C98260 /* MHAudioBufferPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHAudioBufferPlayer.m; sourceTree = "<group>"; };
 		C1C46757171B3FDC00303DF4 /* UICoordButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICoordButton.h; sourceTree = "<group>"; };
 		C1C46758171B3FDC00303DF4 /* UICoordButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICoordButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,9 +101,11 @@
 				C137E7FC168A53C900C0931F /* DDAppDelegate.h */,
 				C137E7FD168A53C900C0931F /* DDAppDelegate.m */,
 				C137E7FF168A53C900C0931F /* DDViewController.h */,
+				C198D82A171C47D100C98260 /* MHAudioBufferPlayer.h */,
+				C198D82B171C47D200C98260 /* MHAudioBufferPlayer.m */,
 				C137E800168A53C900C0931F /* DDViewController.m */,
-				C198D81E171B69A300C98260 /* Bleep.h */,
-				C198D81F171B69A300C98260 /* Bleep.mm */,
+				C198D827171C469C00C98260 /* Synth.h */,
+				C198D828171C469C00C98260 /* Synth.m */,
 				C1C46757171B3FDC00303DF4 /* UICoordButton.h */,
 				C1C46758171B3FDC00303DF4 /* UICoordButton.m */,
 				C137E802168A53C900C0931F /* DDViewController_iPhone.xib */,
@@ -189,7 +194,8 @@
 				C137E7FE168A53C900C0931F /* DDAppDelegate.m in Sources */,
 				C137E801168A53C900C0931F /* DDViewController.m in Sources */,
 				C1C46759171B3FDC00303DF4 /* UICoordButton.m in Sources */,
-				C198D820171B69A300C98260 /* Bleep.mm in Sources */,
+				C198D829171C469C00C98260 /* Synth.m in Sources */,
+				C198D82C171C47D200C98260 /* MHAudioBufferPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

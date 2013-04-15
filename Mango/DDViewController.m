@@ -9,9 +9,12 @@
 #import "DDViewController.h"
 
 @implementation DDViewController
-
+{
+	MHAudioBufferPlayer *_player;
+	Synth *_synth;
+	NSLock *_synthLock;
+}
 bool tones[8][8];
-BleepMachine * m_bleepMachine;
 int scale[8] = {440,493.88,523.25,587.33,659.26,698.46,783.99, 880.00};
 
 - (void)didReceiveMemoryWarning
@@ -25,9 +28,9 @@ int scale[8] = {440,493.88,523.25,587.33,659.26,698.46,783.99, 880.00};
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    m_bleepMachine = new BleepMachine; m_bleepMachine->Initialise(); m_bleepMachine->Start();
     self.view.backgroundColor = [UIColor colorWithRed:193.0f/255.0f green:194.0f/255.0f blue:196.0f/255.0f alpha:1.0];
     CGFloat width = [UIScreen mainScreen].bounds.size.width / 8;
+    [self setUpAudioBufferPlayer];
     for (int y=0; y < 8; y++) {
         for (int x = 0; x < 8; x++) {
             UICoordButton * button = [UICoordButton buttonWithType:UIButtonTypeCustom];
@@ -48,10 +51,68 @@ int scale[8] = {440,493.88,523.25,587.33,659.26,698.46,783.99, 880.00};
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
+- (void)setUpAudioBufferPlayer
+{
+    // We need a lock because we update the Synth's state from the main thread
+	// whenever the user presses a button, but we also read its state from an
+	// audio thread in the MHAudioBufferPlayer callback. Doing both at the same
+	// time is a bad idea and the lock prevents that.
+	_synthLock = [[NSLock alloc] init];
+    
+	// The Synth and the MHAudioBufferPlayer must use the same sample rate.
+	// Note that the iPhone is a lot slower than a desktop computer, so choose
+	// a sample rate that is not too high and a buffer size that is not too low.
+	// For example, a buffer size of 800 packets and a sample rate of 16000 Hz
+	// means you need to fill up the buffer in less than 0.05 seconds. If it
+	// takes longer, the sound will crack up.
+	float sampleRate = 16000.0f;
+    
+	_synth = [[Synth alloc] initWithSampleRate:sampleRate];
+    
+	_player = [[MHAudioBufferPlayer alloc] initWithSampleRate:sampleRate
+													 channels:1
+											   bitsPerChannel:16
+											 packetsPerBuffer:1024];
+	_player.gain = 0.9f;
+    
+	__block __weak DDViewController *weakSelf = self;
+	_player.block = ^(AudioQueueBufferRef buffer, AudioStreamBasicDescription audioFormat)
+	{
+		DDViewController *blockSelf = weakSelf;
+		if (blockSelf != nil)
+		{
+			// Lock access to the synth. This callback runs on an internal
+			// Audio Queue thread and we don't want to allow any other thread
+			// to change the Synth's state while we're still filling up the
+			// audio buffer.
+			[blockSelf->_synthLock lock];
+            
+			// Calculate how many packets fit into this buffer. Remember that a
+			// packet equals one frame because we are dealing with uncompressed
+			// audio; a frame is a set of left+right samples for stereo sound,
+			// or a single sample for mono sound. Each sample consists of one
+			// or more bytes. So for 16-bit mono sound, each packet is 2 bytes.
+			// For stereo it would be 4 bytes.
+			int packetsPerBuffer = buffer->mAudioDataBytesCapacity / audioFormat.mBytesPerPacket;
+            
+			// Let the Synth write into the buffer. The Synth just knows how to
+			// fill up buffers in a particular format and does not care where
+			// they come from.
+			int packetsWritten = [blockSelf->_synth fillBuffer:buffer->mAudioData frames:packetsPerBuffer];
+            
+			// We have to tell the buffer how many bytes we wrote into it. 
+			buffer->mAudioDataByteSize = packetsWritten * audioFormat.mBytesPerPacket;	
+            
+			[blockSelf->_synthLock unlock];
+		}
+	};
+    
+	[_player start];
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    delete m_bleepMachine;
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -101,8 +162,15 @@ int scale[8] = {440,493.88,523.25,587.33,659.26,698.46,783.99, 880.00};
 }
 
 - (void)buttonPressed:(UICoordButton *)button {
-    m_bleepMachine->SetWave(0, scale[[button getI]], 0.5);
-    m_bleepMachine->SetWave(1, scale[[button getI]], 0.5);
+    [_synthLock lock];
+    
+	// The tag of each button corresponds to its MIDI note number.
+	int midiNote = button.i + 68;
+	[_synth playNote:midiNote];
+    
+	[_synthLock unlock];
+    //m_bleepMachine->SetWave(0, scale[[button getI]], 0.5);
+    //m_bleepMachine->SetWave(1, scale[[button getI]], 0.5);
     if(tones[[button getI]][[button getJ]]){
         [button setBackgroundColor:[UIColor colorWithRed:35.0f/255.0f green:31.0f/255.0f blue:32.0f/255.0f alpha:1.0]];
     }
