@@ -34,8 +34,17 @@ void BleepMachine::queueCallback( AudioQueueRef outAQ, AudioQueueBufferRef outBu
         
         phaseL += fStepL;
         phaseR += fStepR;
+
     }
+    /*
+    Wave& wave = m_waves[0];
+    Wave& wave2 = m_waves[1];
     
+    if (wave.volume > 0.01)
+        wave.volume -= 0.01;
+    if (wave2.volume > 0.01)
+        wave2.volume -= 0.01;
+    */
     m_waves[kLeftWave].phase = fmodf( phaseL, 2 * M_PI );   // Take modulus to preserve precision
     m_waves[kRightWave].phase = fmodf( phaseR, 2 * M_PI );
     

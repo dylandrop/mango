@@ -12,6 +12,7 @@
 
 bool tones[8][8];
 BleepMachine * m_bleepMachine;
+int scale[8] = {440,493.88,523.25,587.33,659.26,698.46,783.99, 880.00};
 
 - (void)didReceiveMemoryWarning
 {
@@ -25,7 +26,6 @@ BleepMachine * m_bleepMachine;
 {
     [super viewDidLoad];
     m_bleepMachine = new BleepMachine; m_bleepMachine->Initialise(); m_bleepMachine->Start();
-    m_bleepMachine->SetWave(0, 400, 1);
     self.view.backgroundColor = [UIColor colorWithRed:193.0f/255.0f green:194.0f/255.0f blue:196.0f/255.0f alpha:1.0];
     CGFloat width = [UIScreen mainScreen].bounds.size.width / 8;
     for (int y=0; y < 8; y++) {
@@ -101,6 +101,8 @@ BleepMachine * m_bleepMachine;
 }
 
 - (void)buttonPressed:(UICoordButton *)button {
+    m_bleepMachine->SetWave(0, scale[[button getI]], 0.5);
+    m_bleepMachine->SetWave(1, scale[[button getI]], 0.5);
     if(tones[[button getI]][[button getJ]]){
         [button setBackgroundColor:[UIColor colorWithRed:35.0f/255.0f green:31.0f/255.0f blue:32.0f/255.0f alpha:1.0]];
     }
