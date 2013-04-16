@@ -58,6 +58,7 @@ int scale[8] = {60,62,64,65,67,69,71,72};
 {
     int number = [col intValue];
     NSLog(@"hey");
+    NSMutableArray *buttons= [[NSMutableArray alloc]initWithObjects: nil];
     if(KEEP_PLAYING) {
         for(int i = 0; i < 8; i++) {
             if(tones[i][number]) {
@@ -65,6 +66,11 @@ int scale[8] = {60,62,64,65,67,69,71,72};
                 
                 // The tag of each button corresponds to its MIDI note number.
                 int midiNote = scale[7-i];
+                
+                int tag = i * 9 + number + 1;
+                UIButton *button = (UIButton *)[self.view viewWithTag:tag];
+                [buttons addObject:button];
+                button.backgroundColor = [UIColor colorWithRed:193.0f/255.0f green:194.0f/255.0f blue:196.0f/255.0f alpha:1.0];
                 [_synth playNote:midiNote];
                 
                 [_synthLock unlock];
@@ -73,6 +79,15 @@ int scale[8] = {60,62,64,65,67,69,71,72};
     }
     int temp = (number + 1) % 8;
     [self performSelector:@selector(loopThroughGrid:) withObject:[NSNumber numberWithInt:(temp)] afterDelay:(0.5)];
+    [self performSelector:@selector(releaseButtons:) withObject:buttons afterDelay:(0.5)];
+}
+
+- (void)releaseButtons:(NSMutableArray *)buttons
+{
+    for (UIButton *button in buttons){
+        [button setBackgroundColor:[UIColor colorWithRed:0.0f/255.0f green:187.0f/255.0f blue:226.0f/255.0f alpha:1.0]];
+    }
+    [buttons removeAllObjects];
 }
 
 - (void)setUpAudioBufferPlayer
