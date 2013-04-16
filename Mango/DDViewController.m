@@ -57,7 +57,6 @@ int scale[8] = {60,62,64,65,67,69,71,72};
 - (void)loopThroughGrid:(NSNumber *)col
 {
     int number = [col intValue];
-    NSLog(@"hey");
     NSMutableArray *buttons= [[NSMutableArray alloc]initWithObjects: nil];
     if(KEEP_PLAYING) {
         for(int i = 0; i < 8; i++) {
@@ -84,8 +83,13 @@ int scale[8] = {60,62,64,65,67,69,71,72};
 
 - (void)releaseButtons:(NSMutableArray *)buttons
 {
-    for (UIButton *button in buttons){
-        [button setBackgroundColor:[UIColor colorWithRed:0.0f/255.0f green:187.0f/255.0f blue:226.0f/255.0f alpha:1.0]];
+    for (UICoordButton *button in buttons){
+        if(!tones[[button getI]][[button getJ]]){
+            [button setBackgroundColor:[UIColor colorWithRed:35.0f/255.0f green:31.0f/255.0f blue:32.0f/255.0f alpha:1.0]];
+        }
+        else {
+            [button setBackgroundColor:[UIColor colorWithRed:0.0f/255.0f green:187.0f/255.0f blue:226.0f/255.0f alpha:1.0]];
+        }
     }
     [buttons removeAllObjects];
 }
