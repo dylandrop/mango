@@ -17,4 +17,5 @@
 - (IBAction)changeColor:(id)sender;
 - (IBAction)changeColor2:(id)sender;
 - (void)setUpAudioBufferPlayer;
+- (void)loopThroughGrid:(NSNumber *)col;
 @end

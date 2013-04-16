@@ -13,9 +13,10 @@
 	MHAudioBufferPlayer *_player;
 	Synth *_synth;
 	NSLock *_synthLock;
+    bool KEEP_PLAYING;
+    bool tones[8][8];
 }
-bool tones[8][8];
-int scale[8] = {440,493.88,523.25,587.33,659.26,698.46,783.99, 880.00};
+int scale[8] = {60,62,64,65,67,69,71,72};
 
 - (void)didReceiveMemoryWarning
 {
@@ -28,6 +29,7 @@ int scale[8] = {440,493.88,523.25,587.33,659.26,698.46,783.99, 880.00};
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    KEEP_PLAYING = true;
     self.view.backgroundColor = [UIColor colorWithRed:193.0f/255.0f green:194.0f/255.0f blue:196.0f/255.0f alpha:1.0];
     CGFloat width = [UIScreen mainScreen].bounds.size.width / 8;
     [self setUpAudioBufferPlayer];
@@ -48,7 +50,29 @@ int scale[8] = {440,493.88,523.25,587.33,659.26,698.46,783.99, 880.00};
             [self.view addSubview: button];
         }
     }
+    [self loopThroughGrid:0];
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)loopThroughGrid:(NSNumber *)col
+{
+    int number = [col intValue];
+    NSLog(@"hey");
+    if(KEEP_PLAYING) {
+        for(int i = 0; i < 8; i++) {
+            if(tones[i][number]) {
+                [_synthLock lock];
+                
+                // The tag of each button corresponds to its MIDI note number.
+                int midiNote = scale[7-i];
+                [_synth playNote:midiNote];
+                
+                [_synthLock unlock];
+            }
+        }
+    }
+    int temp = (number + 1) % 8;
+    [self performSelector:@selector(loopThroughGrid:) withObject:[NSNumber numberWithInt:(temp)] afterDelay:(0.5)];
 }
 
 - (void)setUpAudioBufferPlayer
@@ -112,6 +136,7 @@ int scale[8] = {440,493.88,523.25,587.33,659.26,698.46,783.99, 880.00};
 
 - (void)viewDidUnload
 {
+    KEEP_PLAYING = false;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -162,15 +187,6 @@ int scale[8] = {440,493.88,523.25,587.33,659.26,698.46,783.99, 880.00};
 }
 
 - (void)buttonPressed:(UICoordButton *)button {
-    [_synthLock lock];
-    
-	// The tag of each button corresponds to its MIDI note number.
-	int midiNote = button.i + 68;
-	[_synth playNote:midiNote];
-    
-	[_synthLock unlock];
-    //m_bleepMachine->SetWave(0, scale[[button getI]], 0.5);
-    //m_bleepMachine->SetWave(1, scale[[button getI]], 0.5);
     if(tones[[button getI]][[button getJ]]){
         [button setBackgroundColor:[UIColor colorWithRed:35.0f/255.0f green:31.0f/255.0f blue:32.0f/255.0f alpha:1.0]];
     }
