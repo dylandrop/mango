@@ -63,9 +63,6 @@ const float ReleaseTime = 0.5f;
     
 	for (int i = 0; i < _sineLength; ++i){
 		_sine[i] = sinf(i * 2.0f * M_PI / _sineLength);
-        for (int i = 0; i < _sineLength; ++i){
-            _sine[i] = sinf(i * 2.0f * M_PI / _sineLength);
-        }
     }
 }
 
@@ -81,14 +78,11 @@ const float ReleaseTime = 0.5f;
     
 	for (int i = 0; i < _sineLength; ++i){
 		_sine[i] = sinf(i * 2.0f * M_PI / _sineLength);
-        for (int i = 0; i < _sineLength; ++i){
-            _sine[i] = sinf(i * 2.0f * M_PI / _sineLength);
-            if(_sine[i] > 0) {
-                _sine[i] = 1;
-            }
-            else {
-                _sine[i] = -1;
-            }
+        if(_sine[i] > 0) {
+            _sine[i] = 1;
+        }
+        else {
+            _sine[i] = -1;
         }
     }
 }
