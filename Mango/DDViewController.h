@@ -14,8 +14,6 @@
 #import "Synth.h"
 #import "MHAudioBufferPlayer.h"
 @interface DDViewController : UIViewController
-- (IBAction)changeColor:(id)sender;
-- (IBAction)changeColor2:(id)sender;
 - (void)setUpAudioBufferPlayer;
 - (void)loopThroughGrid:(NSNumber *)col;
 - (IBAction)changeWaveType:(id)sender;
