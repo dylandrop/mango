@@ -61,8 +61,36 @@ const float ReleaseTime = 0.5f;
 	_sineLength = (int)_sampleRate;
 	_sine = (float *)malloc(_sineLength * sizeof(float));
     
-	for (int i = 0; i < _sineLength; ++i)
+	for (int i = 0; i < _sineLength; ++i){
 		_sine[i] = sinf(i * 2.0f * M_PI / _sineLength);
+        for (int i = 0; i < _sineLength; ++i){
+            _sine[i] = sinf(i * 2.0f * M_PI / _sineLength);
+        }
+    }
+}
+
+
+- (void)buildSquareTable
+{
+	// Compute a sine table for a 1 Hz tone at the current sample rate.
+	// We can quickly derive the sine wave for any other tone from this
+	// table by stepping through it with the wanted pitch value.
+    
+	_sineLength = (int)_sampleRate;
+	_sine = (float *)malloc(_sineLength * sizeof(float));
+    
+	for (int i = 0; i < _sineLength; ++i){
+		_sine[i] = sinf(i * 2.0f * M_PI / _sineLength);
+        for (int i = 0; i < _sineLength; ++i){
+            _sine[i] = sinf(i * 2.0f * M_PI / _sineLength);
+            if(_sine[i] > 0) {
+                _sine[i] = 1;
+            }
+            else {
+                _sine[i] = -1;
+            }
+        }
+    }
 }
 
 - (void)buildEnvelope

@@ -191,20 +191,6 @@ int scale[8] = {60,62,64,65,67,69,71,72};
     }
 }
 
-- (IBAction)changeColor:(id)sender {
-    int r = arc4random() % 255;
-    int g = arc4random() % 255;
-    int b = arc4random() % 255;
-    UIColor *color = [UIColor colorWithRed:(r/255.0) green:(g/255.0) blue:(b/255.0) alpha:1.0];
-    [self.view setBackgroundColor:color];
-}
-
-- (IBAction)changeColor2:(id)sender {
-    int b = 255;
-    UIColor *color = [UIColor colorWithRed:(0) green:(0) blue:(b/255.0) alpha:1.0];
-    [self.view setBackgroundColor:color];
-}
-
 - (void)buttonPressed:(UICoordButton *)button {
     if(tones[[button getI]][[button getJ]]){
         [button setBackgroundColor:[UIColor colorWithRed:35.0f/255.0f green:31.0f/255.0f blue:32.0f/255.0f alpha:1.0]];
@@ -215,6 +201,14 @@ int scale[8] = {60,62,64,65,67,69,71,72};
     tones[[button getI]][[button getJ]] = tones[[button getI]][[button getJ]] ? false : true;
 }
 
-
+- (IBAction)changeWaveType:(id)sender {
+    UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
+    if([[segmentedControl titleForSegmentAtIndex:segmentedControl.selectedSegmentIndex] isEqualToString:@"Square"]) {
+        [_synth buildSquareTable];
+    }
+    else {
+        [_synth buildSineTable];
+    }
+}
 
 @end

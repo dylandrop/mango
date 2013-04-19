@@ -78,5 +78,6 @@ ToneEvent;
 
 - (void)equalTemperament;
 - (void)buildSineTable;
+- (void)buildSquareTable;
 - (void)buildEnvelope;
 @end
