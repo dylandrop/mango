@@ -15,6 +15,7 @@
 	NSLock *_synthLock;
     bool KEEP_PLAYING;
     bool tones[8][8];
+    double tempo;
 }
 int scale[8] = {60,62,64,65,67,69,71,72};
 
@@ -30,6 +31,7 @@ int scale[8] = {60,62,64,65,67,69,71,72};
 {
     [super viewDidLoad];
     KEEP_PLAYING = true;
+    tempo = 0.5;
     self.view.backgroundColor = [UIColor colorWithRed:193.0f/255.0f green:194.0f/255.0f blue:196.0f/255.0f alpha:1.0];
     CGFloat width = [UIScreen mainScreen].bounds.size.width / 8;
     [self setUpAudioBufferPlayer];
@@ -77,8 +79,8 @@ int scale[8] = {60,62,64,65,67,69,71,72};
         }
     }
     int temp = (number + 1) % 8;
-    [self performSelector:@selector(loopThroughGrid:) withObject:[NSNumber numberWithInt:(temp)] afterDelay:(0.5)];
-    [self performSelector:@selector(releaseButtons:) withObject:buttons afterDelay:(0.5)];
+    [self performSelector:@selector(loopThroughGrid:) withObject:[NSNumber numberWithInt:(temp)] afterDelay:(tempo)];
+    [self performSelector:@selector(releaseButtons:) withObject:buttons afterDelay:(tempo)];
 }
 
 - (void)releaseButtons:(NSMutableArray *)buttons
@@ -227,5 +229,10 @@ int scale[8] = {60,62,64,65,67,69,71,72};
     int temp[8] = {60,63,65,67,70,72,75,77};
     for(int i = 0; i < (sizeof(temp)/sizeof(temp[0])); i++)
         scale[i] = temp[i];
+}
+
+- (IBAction)setTempo:(id)sender {
+    UISlider *slider = (UISlider *) sender;
+    tempo = [slider value];
 }
 @end

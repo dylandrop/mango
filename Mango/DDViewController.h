@@ -20,4 +20,5 @@
 - (IBAction)setMinorScale:(id)sender;
 - (IBAction)setMajorScale:(id)sender;
 - (IBAction)setPentatonicScale:(id)sender;
+- (IBAction)setTempo:(id)sender;
 @end
