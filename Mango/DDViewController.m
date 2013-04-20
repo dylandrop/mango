@@ -211,4 +211,21 @@ int scale[8] = {60,62,64,65,67,69,71,72};
     }
 }
 
+- (IBAction)setMajorScale:(id)sender {
+    int temp[8] = {60,62,64,65,67,69,71,72};
+    for(int i = 0; i < (sizeof(temp)/sizeof(temp[0])); i++)
+        scale[i] = temp[i];
+}
+
+- (IBAction)setMinorScale:(id)sender {
+    int temp[8] = {60,62,63,65,67,68,70,72};
+    for(int i = 0; i < (sizeof(temp)/sizeof(temp[0])); i++)
+        scale[i] = temp[i];
+}
+
+- (IBAction)setPentatonicScale:(id)sender {
+    int temp[8] = {60,63,65,67,70,72,75,77};
+    for(int i = 0; i < (sizeof(temp)/sizeof(temp[0])); i++)
+        scale[i] = temp[i];
+}
 @end

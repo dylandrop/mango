@@ -17,4 +17,7 @@
 - (void)setUpAudioBufferPlayer;
 - (void)loopThroughGrid:(NSNumber *)col;
 - (IBAction)changeWaveType:(id)sender;
+- (IBAction)setMinorScale:(id)sender;
+- (IBAction)setMajorScale:(id)sender;
+- (IBAction)setPentatonicScale:(id)sender;
 @end
